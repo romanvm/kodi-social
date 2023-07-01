@@ -46,9 +46,9 @@ def create_database() -> None:
         cursor.execute(POSTS_DDL)
 
 
-def post_exists(guid: str) -> bool:
+def post_exists(uid: str) -> bool:
     with DatabaseCursor() as cursor:
-        cursor.execute(CHECK_EXISTS, [guid])
+        cursor.execute(CHECK_EXISTS, [uid])
         result = cursor.fetchone()
         return bool(result and result[0])
 
