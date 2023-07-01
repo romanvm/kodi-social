@@ -18,6 +18,7 @@ VALUES (?, ?, ?)
 
 CHECK_EXISTS = "SELECT 1 FROM posts WHERE uid = ?"
 
+
 class DatabaseCursor:
 
     def __init__(self, db_path: Path = DB_PATH, commit: bool = False):
