@@ -27,6 +27,7 @@ def notify(title: str, link: str) -> None:
     message['From'] = os.getenv('EMAIL_FROM')
     recipient = os.getenv('EMAIL_TO')
     message['To'] = recipient
+    message['X-Mailer'] = 'Kodi Social script'
     host = os.getenv('EMAIL_HOST')
     port = int(os.getenv('EMAIL_PORT'))
     user = os.getenv('EMAIL_USER')
