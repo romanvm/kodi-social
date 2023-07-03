@@ -26,12 +26,8 @@ class DatabaseCursor:
         self._connection = None
         self._commit = commit
 
-    def _get_connection(self):
-        connection = sqlite3.connect(self._db_path)
-        return connection
-
     def __enter__(self):
-        self._connection = self._get_connection()
+        self._connection = sqlite3.connect(self._db_path)
         cursor = self._connection.cursor()
         return cursor
 
