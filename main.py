@@ -56,8 +56,8 @@ def process_posts():
     posts = get_posts()
     for post in posts:
         if not post_exists(post['id']):
-            db_row = (post['id'], post['title'], time.strftime(TIME_FORMAT, post['published_parsed']))
             execute_processors(post['title'], post['link'])
+            db_row = (post['id'], post['title'], time.strftime(TIME_FORMAT, post['published_parsed']))
             insert_posts([db_row])
 
 
