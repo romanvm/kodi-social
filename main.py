@@ -50,15 +50,18 @@ def execute_processors(title: str, link: str):
             process_func(title, link)
         except Exception:
             LOGGER.exception('Error when executing %s processor', name)
+            return False
+    return True
 
 
 def process_posts():
     posts = get_posts()
     for post in posts:
         if not post_exists(post['id']):
-            execute_processors(post['title'], post['link'])
-            db_row = (post['id'], post['title'], time.strftime(TIME_FORMAT, post['published_parsed']))
-            insert_posts([db_row])
+            is_success = execute_processors(post['title'], post['link'])
+            if is_success:
+                db_row = (post['id'], post['title'], time.strftime(TIME_FORMAT, post['published_parsed']))
+                insert_posts([db_row])
 
 
 def main():
