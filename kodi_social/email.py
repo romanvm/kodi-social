@@ -13,7 +13,7 @@ TEMPLATE = """<!DOCTYPE html>
     <title>A new article on kodi.tv: {title}</title>
 </head>
 <body>
-    <p>A new article has been published on kodi.tv: <strong><a href="{link}" target="_blank">{title}</a></strong></p>
+    <p>A new article has been published on kodi.tv: <strong>{title}: <a href="{link}" target="_blank">{link}</a></strong></p>
 </body>
 </html>"""
 
